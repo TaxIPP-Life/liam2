@@ -51,7 +51,7 @@ simulation:
 
 # As you have seen, when a simulation is run, a console window opens within the
 # editor and displays the status of the simulation. After the simulation
-# completes, some statistics about the simulation are displayed and the console
+# completes, some statistics about the sim lation are displayed and the console
 # window becomes interactive. Any expression or command that can be used during
 # the simulation can also be used in that interactive console.
 
@@ -101,4 +101,5 @@ simulation:
 # menu, or the funnel icon on the toolbar to access it. This feature has many
 # uses, from finding individuals with odd values in some fields to tracking
 # particular individuals across all the periods of a simulation (e.g. with
+>>>>>>> 2dc28e10f475f4e0149323b221efe5bb370a4625
 # a "id == 42" query condition).

@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 
 import os
@@ -5,9 +8,10 @@ import sys
 import fnmatch
 from os.path import join
 from itertools import chain
-from distutils.extension import Extension
-
-from cx_Freeze import setup, Executable
+# from distutils.extension import Extension
+#  from cx_Freeze import setup, Executable
+from setuptools import setup
+from setuptools.extension import Extension
 from Cython.Distutils import build_ext
 import numpy as np
 
@@ -125,12 +129,7 @@ build_exe_options = {
         "_codecs_kr", "_codecs_tw",
 
         # common modules
-        "Tkconstants", "Tkinter", "Cython", "_ssl", "base64", "bz2", "compiler",
-        "doctest", "dummy_thread", "dummy_threading", "email", "ftplib",
-        "multiprocessing", "nose", "numpy.distutils",
-        "numpy.core._dotblas", "os2emxpath", "pdb", "pkg_resources",
-        "posixpath", "pydoc", "pydoc_topics", "repr", "scipy", "select",
-        "stringprep", "strptime", "tcl"
+        "Tkconstants", "Tkinter", "scipy", "tcl"
     ],
     'include_files': vitables_data_files(),
 }
@@ -141,11 +140,12 @@ build_exe_options = {
 #============#
 
 setup(name="liam2",
-      version=int_version('0.8.2rc1'),  # cx_freeze wants only ints and dots
+      # cx_freeze wants only ints and dots
+      version=int_version('0.9.1.1'),
       description="LIAM2",
       cmdclass={"build_ext": MyBuildExt},
       ext_modules=ext_modules,
       options={"build_ext": build_ext_options, "build_exe": build_exe_options},
-      executables=[Executable("main.py")],
+      # executables=[Executable("main.py")],
       requires=['numpy', 'numexpr', 'tables', 'bcolz'])
 # also recommends 'matplotlib' and 'vitables'
